@@ -29,11 +29,9 @@ class Register extends React.Component {
             'My Alert Msg', [{
                 text: 'OK', onPress: () => {
                     console.log('OK Pressed');
-                    this.state.qr_readed = false
-
                     //<Button onPress={()=>Actions.login({data:"Custom data", title:'Custom title' })}>Go to Login page</Button>
-                    Actions.login({data: din});
-                    return;
+                    //console.log(JSON.parse(din.data));
+                    Actions.login({data: din.data});
                 }
             }]
         )

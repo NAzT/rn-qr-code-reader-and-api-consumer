@@ -10,7 +10,6 @@ class Login extends React.Component {
         return (
             <View style={styles.container}>
                 <Text>Login page: {this.props.data}</Text>
-                <Button onPress={Actions.loginModal2}>Login 2</Button>
                 <Button onPress={Actions.pop}>Back</Button>
             </View>
         );
