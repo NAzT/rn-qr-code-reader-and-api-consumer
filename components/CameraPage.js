@@ -90,4 +90,5 @@ const styles = StyleSheet.create({
     }
 });
 
-AppRegistry.registerComponent('qr_reader', () => BadInstagramCloneApp);
+module.exports = BadInstagramCloneApp;
+

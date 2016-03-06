@@ -6,17 +6,26 @@ var Button = require('react-native-button');
 var Actions = require('react-native-router-flux').Actions;
 
 class Launch extends React.Component {
+
+    componentDidMount() {
+        //Actions.modalBox;
+        //setTimeout()
+    }
+
     render(){
         return (
             <View style={styles.container}>
-                <Text>Launch page</Text>
-                <Button onPress={()=>Actions.login({data:"Custom data", title:'Custom title' })}>Go to Login page</Button>
-                <Button onPress={Actions.register}>Go to Register page</Button>
-                <Button onPress={Actions.register2}>Go to Register page without animation</Button>
-                <Button onPress={()=>Actions.error("Error message")}>Popup error</Button>
-                <Button onPress={Actions.modalBox}>PopUp with ReactNativeModalBox</Button>
-                <Button onPress={Actions.tabbar}>Go to TabBar page</Button>
-                <Button onPress={()=>Actions.showActionSheet({callback:index=>alert("Selected:"+index)})}>Show ActionSheet</Button>
+                {
+                    //<Text>Launch page</Text>
+                    //<Button onPress={()=>Actions.login({data:"Custom data", title:'Custom title' })}>Go to Login page</Button>
+                    //<Button onPress={Actions.register2}>Go to Register page without animation</Button>
+                    //<Button onPress={()=>Actions.error("Error message")}>Popup error</Button>
+                    //<Button onPress={()=>Actions.showActionSheet({callback:index=>alert("Selected:"+index)})}>Show ActionSheet</Button>
+                    //<Button onPress={Actions.cameraBox}>PopUp with ReactNativeModalBox</Button>
+
+                    <Button onPress={Actions.register}>Go to Register page</Button>
+                    //<Button onPress={Actions.cameraBox}>Go to Register page</Button>
+                }
             </View>
         );
     }

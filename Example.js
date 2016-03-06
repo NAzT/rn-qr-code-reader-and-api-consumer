@@ -5,13 +5,13 @@ var {AppRegistry, Navigator, StyleSheet,Text,View} = React;
 var Launch = require('./components/Launch');
 var Register = require('./components/Register');
 var Login = require('./components/Login');
-var Login2 = require('./components/Login2');
 var RNRF = require('react-native-router-flux');
 var {Route, Schema, Animations, Actions, TabBar} = RNRF;
 var Error = require('./components/Error');
 var Home = require('./components/Home');
 var TabView = require('./components/TabView');
 var ReactNativeModalBox = require('./components/ReactNativeModalBox');
+var CameraPage = require('./components/CameraPage');
 
 // Redux stuff is optional
 import { createStore } from 'redux'
@@ -73,15 +73,11 @@ export default class Example extends React.Component {
                     <Route name="register" component={Register} title="Register"/>
                     <Route name="showActionSheet" type="actionSheet" title="What do you want to do?" options={['Delete', 'Save', 'Cancel']} cancelButtonIndex={2} destructiveButtonIndex={0}/>
                     <Route name="home" component={Home} title="Replace" type="replace"/>
-                    <Route name="login" schema="modal">
-                        <Router name="loginRouter">
-                            <Route name="loginModal" component={Login} schema="modal"/>
-                            <Route name="loginModal2" hideNavBar={true} component={Login2} title="Login2"/>
-                        </Router>
-                    </Route>
+
                     <Route name="register2" component={Register} title="Register2"  schema="withoutAnimation"/>
                     <Route name="error" type="modal" component={Error}/>
                     <Route name="modalBox" type="modal" component={ReactNativeModalBox}/>
+                    <Route name="cameraBox" type="modal" component={CameraPage}/>
                     <Route name="tabbar">
                         <Router footer={TabBar} hideNavBar={true}>
                             <Route name="tab1" schema="tab" title="Tab #1" >
