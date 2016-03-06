@@ -24,17 +24,18 @@ class Register extends React.Component {
         else
             this.state.qr_readed = true;
 
-        Alert.alert(
-            'Alert Title',
-            'My Alert Msg', [{
-                text: 'OK', onPress: () => {
-                    console.log('OK Pressed');
-                    //<Button onPress={()=>Actions.login({data:"Custom data", title:'Custom title' })}>Go to Login page</Button>
-                    //console.log(JSON.parse(din.data));
-                    Actions.login({data: din.data});
-                }
-            }]
-        )
+        console.log(din);
+        Actions.login({data: din.data});
+        //Alert.alert(
+        //    'Alert Title',
+        //    'My Alert Msg', [{
+        //        text: 'OK', onPress: () => {
+        //            console.log('OK Pressed');
+        //            //<Button onPress={()=>Actions.login({data:"Custom data", title:'Custom title' })}>Go to Login page</Button>
+        //            //console.log(JSON.parse(din.data));
+        //        }
+        //    }]
+        //)
     }
 
     takePicture() {
