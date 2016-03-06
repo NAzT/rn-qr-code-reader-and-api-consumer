@@ -21,7 +21,9 @@ class Launch extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                    <Image source={thermometer} style={styles.backgroundImage}/>
+                <Image source={thermometer} style={styles.backgroundImage}>
+                </Image>
+                <Button style={styles.button} onPress={Actions.register}>Go to Register page</Button>
             </View>
         );
     }
@@ -29,17 +31,22 @@ class Launch extends React.Component {
 
 var styles = StyleSheet.create({
     container: {
-        backgroundColor: '#519af2',
+        backgroundColor: '#7fd7a9',
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        flexDirection: 'row',
+        flexDirection: 'column',
     },
 
 
     backgroundImage: {
-        flex: 1,
+        flex: 10,
         resizeMode: 'contain', // or 'stretch'
+    },
+
+    button: {
+        backgroundColor: 'transparent',
+        flex: 1
     }
 
 });
