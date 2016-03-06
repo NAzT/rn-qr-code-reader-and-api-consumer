@@ -12,9 +12,7 @@ class Login extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.top}>
-                    <Image source={require("../landing.png")} style={styles.backgroundImage}>
-                        <Button style={styles.button} onPress={Actions.appDetail}> </Button>
-                    </Image>
+                    <Image source={require("../landing.png")} style={styles.backgroundImage}/>
                 </View>
 
                 <View style={styles.bottom}>
@@ -32,25 +30,25 @@ class Login extends React.Component {
 
 var styles = StyleSheet.create({
     container: {
+        backgroundColor: 'purple',
         flex: 1,
-        backgroundColor: '#F5FCFF',
-        flexDirection: 'column'
+        flexDirection: 'column',
     },
 
     top: {
         alignSelf: 'center',
+        justifyContent: 'flex-start',
         height: 200,
-        justifyContent: 'center',
         backgroundColor: 'blue',
     },
 
     backgroundImage: {
         resizeMode: 'contain',
-        flex: 1,
+        flex: 1
     },
 
     bottom: {
-        flex: 2,
+        flex: 1,
         //justifyContent: 'center',
         //alignItems: 'center',
         backgroundColor: 'red',
