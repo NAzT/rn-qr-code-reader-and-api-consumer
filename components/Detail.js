@@ -1,16 +1,30 @@
 'use strict';
 
 var React = require('react-native');
-var {View, Text, StyleSheet} = React;
+var {View,
+    Image,
+    Text, StyleSheet} = React;
 var Button = require('react-native-button');
 var Actions = require('react-native-router-flux').Actions;
 
 class Login extends React.Component {
-    render(){
+    render() {
         return (
             <View style={styles.container}>
-                <Text>Login page: {this.props.data}</Text>
-                <Button onPress={Actions.pop}>Back</Button>
+                <View style={styles.top}>
+                    <Image source={require("../landing.png")} style={styles.backgroundImage}>
+                        <Button style={styles.button} onPress={Actions.appDetail}> </Button>
+                    </Image>
+                </View>
+
+                <View style={styles.bottom}>
+                    <View>
+                        <View></View>
+                        <View></View>
+
+                    </View>
+
+                </View>
             </View>
         );
     }
@@ -19,22 +33,29 @@ class Login extends React.Component {
 var styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#F5FCFF',
+        flexDirection: 'column'
     },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
+
+    top: {
+        alignSelf: 'center',
+        height: 200,
+        justifyContent: 'center',
+        backgroundColor: 'blue',
     },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
+
+    backgroundImage: {
+        resizeMode: 'contain',
+        flex: 1,
+    },
+
+    bottom: {
+        flex: 2,
+        //justifyContent: 'center',
+        //alignItems: 'center',
+        backgroundColor: 'red',
     },
 });
-
 
 
 module.exports = Login;

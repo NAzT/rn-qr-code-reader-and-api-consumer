@@ -41,20 +41,6 @@ function reducer(state = {}, action) {
 let store = createStore(reducer);
 const Router = connect()(RNRF.Router);
 
-class TabIcon extends React.Component {
-    render(){
-        return (
-            <Text style={{color: this.props.selected ? 'red' :'black'}}>{this.props.title}</Text>
-        );
-    }
-}
-
-class Header extends React.Component {
-    render(){
-        return <Text>Header</Text>
-    }
-}
-
 export default class Example extends React.Component {
     render() {
         // Provider is optional (if you want to use redux)
@@ -63,21 +49,13 @@ export default class Example extends React.Component {
                 <Router hideNavBar={true} name="root">
                     <Schema name="modal" sceneConfig={Navigator.SceneConfigs.FloatFromBottom}/>
                     <Schema name="default" sceneConfig={Navigator.SceneConfigs.FloatFromRight}/>
-                    <Schema name="withoutAnimation"/>
-                    <Schema name="tab" type="switch" icon={TabIcon} />
-
                     <Route name="register" component={ScanQR} title="Register"/>
-                    <Route name="showActionSheet" type="actionSheet" title="What do you want to do?" options={['Delete', 'Save', 'Cancel']} cancelButtonIndex={2} destructiveButtonIndex={0}/>
-                    <Route name="login" schema="modal">
+                    <Route name="appDetail" schema="modal">
                         <Router name="loginRouter">
                             <Route name="loginModal" component={Detail} schema="modal"/>
                         </Router>
                     </Route>
-
-
-                    <Route name="register2" component={ScanQR} title="Register2"  schema="withoutAnimation"/>
-                    <Route name="error" type="modal" component={Error}/>
-                    <Route name="launch" header={Header} initial={true} component={Launch} wrapRouter={true} title="Launch" hideNavBar={true}/>
+                    <Route name="launch"  initial={true} component={Launch} wrapRouter={true} title="Launch" hideNavBar={true}/>
                 </Router>
             </Provider>
         );

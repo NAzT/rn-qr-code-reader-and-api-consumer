@@ -19,8 +19,9 @@ class Launch extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+
                 <Image source={thermometer} style={styles.backgroundImage}>
-                    <Button style={styles.button} onPress={Actions.register}> </Button>
+                    <Button style={styles.button} onPress={Actions.appDetail}> </Button>
                 </Image>
 
             </View>
