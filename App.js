@@ -7,7 +7,6 @@ var ScanQR = require('./components/ScanQR');
 var Detail = require('./components/Detail');
 var RNRF = require('react-native-router-flux');
 var {Route, Schema, Animations, Actions, TabBar} = RNRF;
-var Error = require('./components/Error');
 
 // Redux stuff is optional
 import { createStore } from 'redux'
@@ -37,6 +36,7 @@ function reducer(state = {}, action) {
             return state;
     }
 
+
 }
 let store = createStore(reducer);
 const Router = connect()(RNRF.Router);
@@ -49,7 +49,7 @@ export default class Example extends React.Component {
                 <Router hideNavBar={true} name="root">
                     <Schema name="modal" sceneConfig={Navigator.SceneConfigs.FloatFromBottom}/>
                     <Schema name="default" sceneConfig={Navigator.SceneConfigs.FloatFromRight}/>
-                    <Route name="register" component={ScanQR} title="Register"/>
+                    <Route name="scanQR" component={ScanQR} title="ScanQR"/>
                     <Route name="appDetail" schema="modal">
                         <Router name="loginRouter">
                             <Route name="loginModal" component={Detail} schema="modal"/>

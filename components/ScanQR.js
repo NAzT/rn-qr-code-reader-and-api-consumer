@@ -19,13 +19,17 @@ class Register extends React.Component {
         this.setState({qr_readed: false});
     }
 
+    componentDidMount() {
+        this.setState({qr_readed: false});
+    }
+
     onBarCodeRead(din) {
         if (this.state.qr_readed) return;
         else
             this.state.qr_readed = true;
 
         console.log(din);
-        Actions.login({data: din.data});
+        Actions.appDetail({data: din.data});
     }
 
     takePicture() {
@@ -45,7 +49,6 @@ class Register extends React.Component {
                     onBarCodeRead={this.onBarCodeRead.bind(this)}
                     style={styles.preview}
                     aspect={Camera.constants.Aspect.fill}>
-                    <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
                 </Camera>
                 <Button onPress={Actions.pop}>Back</Button>
             </View>
