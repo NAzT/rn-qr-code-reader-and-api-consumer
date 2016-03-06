@@ -13,8 +13,6 @@ var thermometer = require("../landing.png");
 class Launch extends React.Component {
 
     componentDidMount() {
-        //Actions.modalBox;
-        //setTimeout()
         console.log("DID MOUNT");
     }
 

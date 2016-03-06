@@ -3,13 +3,11 @@
 var React = require('react-native');
 var {AppRegistry, Navigator, StyleSheet,Text,View} = React;
 var Launch = require('./components/Launch');
-var Register = require('./components/Register');
-var Login = require('./components/Login');
+var ScanQR = require('./components/ScanQR');
+var Detail = require('./components/Detail');
 var RNRF = require('react-native-router-flux');
 var {Route, Schema, Animations, Actions, TabBar} = RNRF;
 var Error = require('./components/Error');
-var TabView = require('./components/TabView');
-var ReactNativeModalBox = require('./components/ReactNativeModalBox');
 
 // Redux stuff is optional
 import { createStore } from 'redux'
@@ -68,37 +66,17 @@ export default class Example extends React.Component {
                     <Schema name="withoutAnimation"/>
                     <Schema name="tab" type="switch" icon={TabIcon} />
 
-                    <Route name="register" component={Register} title="Register"/>
+                    <Route name="register" component={ScanQR} title="Register"/>
                     <Route name="showActionSheet" type="actionSheet" title="What do you want to do?" options={['Delete', 'Save', 'Cancel']} cancelButtonIndex={2} destructiveButtonIndex={0}/>
                     <Route name="login" schema="modal">
                         <Router name="loginRouter">
-                            <Route name="loginModal" component={Login} schema="modal"/>
+                            <Route name="loginModal" component={Detail} schema="modal"/>
                         </Router>
                     </Route>
 
 
-                    <Route name="register2" component={Register} title="Register2"  schema="withoutAnimation"/>
+                    <Route name="register2" component={ScanQR} title="Register2"  schema="withoutAnimation"/>
                     <Route name="error" type="modal" component={Error}/>
-                    <Route name="modalBox" type="modal" component={ReactNativeModalBox}/>
-                    <Route name="tabbar">
-                        <Router footer={TabBar} hideNavBar={true}>
-                            <Route name="tab1" schema="tab" title="Tab #1" >
-                                <Router onPop={()=>{console.log("onPop is called!"); return true} }>
-                                    <Route name="tab1_1" component={TabView} title="Tab #1_1" />
-                                    <Route name="tab1_2" component={TabView} title="Tab #1_2" />
-                                </Router>
-                            </Route>
-                            <Route name="tab2" schema="tab" title="Tab #2" hideNavBar={true} initial={true}>
-                                <Router onPop={()=>{console.log("onPop is called!"); return true} }>
-                                    <Route name="tab2_1" component={TabView} title="Tab #2_1" />
-                                    <Route name="tab2_2" component={TabView} title="Tab #2_2" />
-                                </Router>
-                            </Route>
-                            <Route name="tab3" schema="tab" title="Tab #3" component={TabView} hideTabBar={true}/>
-                            <Route name="tab4" schema="tab" title="Tab #4" component={TabView} />
-                            <Route name="tab5" schema="tab" title="Tab #5" component={TabView} />
-                        </Router>
-                    </Route>
                     <Route name="launch" header={Header} initial={true} component={Launch} wrapRouter={true} title="Launch" hideNavBar={true}/>
                 </Router>
             </Provider>
